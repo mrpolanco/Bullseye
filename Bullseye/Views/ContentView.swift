@@ -74,6 +74,10 @@ struct HitMeButton: View {
             Color("ButtonColor")
             LinearGradient(colors: [Color.white.opacity(0.3), Color.clear], startPoint: .top, endPoint: .bottom)
         })
+        .overlay(
+            RoundedRectangle(cornerRadius: 25.0)
+                .strokeBorder(Color.white, lineWidth: 2.0)
+        )
         .foregroundColor(Color.white)
         .cornerRadius(25.0)
         // Alert Pop-up
