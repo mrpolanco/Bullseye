@@ -103,6 +103,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
             .preferredColorScheme(.dark)
             .previewLayout(.fixed(width: 568, height: 320))
-        
     }
 }
