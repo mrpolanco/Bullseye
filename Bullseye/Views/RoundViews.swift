@@ -45,7 +45,6 @@ struct PreviewView: View {
             RoundedImageViewFilled(systemName: "list.dash")
         }
     }
-    
 }
 
 struct RoundViews_Previews: PreviewProvider {

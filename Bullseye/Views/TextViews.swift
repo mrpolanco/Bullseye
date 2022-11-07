@@ -40,16 +40,59 @@ struct SliderLabelText: View {
         Text(text)
             .fontWeight(.bold)
             .foregroundColor(Color("TextColor"))
+            .frame(width: 35.0)
+    }
+}
+
+struct LabelTextView: View {
+    var text: String
+    
+    var body: some View {
+        Text(text)
+            .font(.caption)
+            .kerning(1.5)
+            .fontWeight(.bold)
+            .foregroundColor(Color("TextColor"))
+    }
+}
+
+struct RoundRectTextView: View {
+    var text: String
+    
+    var body: some View {
+        Text(text)
+            .font(.title2)
+            .kerning(-0.2)
+            .fontWeight(.bold)
+            .foregroundColor(Color("TextColor"))
+            .frame(width: 68.00, height: 56.00)
+            .overlay(
+                RoundedRectangle(cornerRadius: 21.0)
+                    .strokeBorder(Color("ButtonStrokeColor"), lineWidth: 2.0)
+            )
+    }
+    
+}
+
+struct TextPreviewView: View {
+    
+    var body: some View {
+        VStack (spacing: 10.0) {
+            InstructionText(text: "Instructions")
+            BigNumberText(text: "999")
+            SliderLabelText(text: "1")
+            LabelTextView(text: "Score")
+            RoundRectTextView(text: "5")
+        }
     }
 }
 
 struct TextViews_Previews: PreviewProvider {
     static var previews: some View {
-        VStack {
-            InstructionText(text: "Instructions")
-            BigNumberText(text: "999")
-            SliderLabelText(text: "1")
-        }
-        
+        TextPreviewView()
+            .preferredColorScheme(.dark)
+        TextPreviewView()
     }
 }
+
+

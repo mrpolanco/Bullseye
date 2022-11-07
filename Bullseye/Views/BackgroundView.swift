@@ -41,8 +41,10 @@ struct NumberView: View {
     var text: String
     
     var body: some View {
-        Color.gray
-            .frame(width: 56.0, height: 56.0)
+        VStack {
+            LabelTextView(text: title.uppercased())
+            RoundRectTextView(text: text)
+        }
     }
 }
 
@@ -60,6 +62,8 @@ struct BottomView: View {
 
 struct BackgroundView_Previews: PreviewProvider {
     static var previews: some View {
+        BackgroundView(game: .constant(Game()))
+            .preferredColorScheme(.dark)
         BackgroundView(game: .constant(Game()))
     }
 }
