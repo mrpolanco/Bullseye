@@ -31,4 +31,9 @@ struct Game {
         }
          */
     }
+
+    mutating func startNewRound(points: Int) {
+        score += points
+        round += 1
+    }
 }
