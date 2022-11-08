@@ -13,27 +13,34 @@ struct Game {
     var round = 1
     
     func points(sliderValue: Int) -> Int {
-        100 - abs(target - sliderValue)
-        
-        // Refactoring
-        
-//        if difference < 0 {
-//            difference *= -1
-//        }
-
-        /* Initial
-        if sliderValue > target {
-            difference = sliderValue - target
-        } else if sliderValue < target {
-            difference = target - sliderValue
+        var totalPoints = 100 - abs(target - sliderValue)
+        if totalPoints == 100 {
+            totalPoints += 100
+        } else if totalPoints >= 98 {
+            totalPoints += 50
         } else {
-            difference = 0
+            totalPoints += 0
         }
-         */
+        return totalPoints
+
+        //      Ray's answer
+        //        let difference = abs(target - sliderValue)
+        //        let bonus: Int
+        //
+        //        if difference == 0 {
+        //            bonus = 100
+        //        } else if difference <= 2 {
+        //            bonus = 50
+        //        } else {
+        //            bonus = 0
+        //        }
+        //
+        //        return 100 - difference + bonus
     }
 
     mutating func startNewRound(points: Int) {
         score += points
         round += 1
+        target = Int.random(in: 1...100)
     }
 }

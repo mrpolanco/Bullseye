@@ -79,18 +79,19 @@ struct HitMeButton: View {
         )
         .foregroundColor(Color.white)
         .cornerRadius(25.0)
+
         // Alert Pop-up
         .alert("Hello there!", isPresented: $alertIsVisible) {
-            Button("Awesome!") {}
+            Button("Awesome!") {
+                let points = game.points(sliderValue: Int(sliderValue))
+                game.startNewRound(points: points)
+            }
         } message: {
             let roundedValue = Int(sliderValue)
             Text("The slider value is \(roundedValue).\n" + "You scored \(game.points(sliderValue: roundedValue)) points this round")
         }
     }
 }
-
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
