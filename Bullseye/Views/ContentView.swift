@@ -79,7 +79,7 @@ struct HitMeButton: View {
         )
         .foregroundColor(Color.white)
         .cornerRadius(25.0)
-
+        
         // Alert Pop-up
         .alert("Hello there!", isPresented: $alertIsVisible) {
             Button("Awesome!") {
