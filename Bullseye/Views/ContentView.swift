@@ -17,32 +17,25 @@ struct ContentView: View {
         ZStack {
             BackgroundView(game: $game)
             VStack {
-                VStack {
-                    VStack {
-                        InstructionsViews(game: $game)
-                    }
-                    HStack {
-                        SliderLabelText(text: "1")
-                        SliderView(sliderValue: $sliderValue)
-                        SliderLabelText(text: "100")
-                    }
-                    .padding()
-                }
-                // Button
+                InstructionsViews(game: $game)
+                    .padding(.bottom, 100.0)
                 HitMeButton(text: "Hit Me!", alertIsVisible: $alertIsVisible, game: $game, sliderValue: $sliderValue)
             }
+            SliderView(sliderValue: $sliderValue)
         }
     }
 }
 
 struct InstructionsViews: View {
-    
     @Binding var game: Game
     
     var body: some View {
         VStack {
             InstructionText(text: "🎯🎯🎯\nPut your target as close as you can to")
+                .padding(.leading, 30.0)
+                .padding(.trailing, 30.0)
             BigNumberText(text:String(game.target))
+            
         }
     }
 }
@@ -51,7 +44,12 @@ struct SliderView: View {
     @Binding var sliderValue: Double
     
     var body: some View {
-        Slider(value: $sliderValue, in: 1.0...100.0)
+        HStack {
+            SliderLabelText(text: "1")
+            Slider(value: $sliderValue, in: 1.0...100.0)
+            SliderLabelText(text: "100")
+        }
+        .padding()
     }
 }
 
@@ -62,17 +60,17 @@ struct HitMeButton: View {
     @Binding var sliderValue: Double
     
     var body: some View {
-        
         Button(text.uppercased()) {
             self.alertIsVisible = true
         }
         .bold()
         .font(.title3)
         .padding(20.0)
-        .background(ZStack {
-            Color("ButtonColor")
-            LinearGradient(colors: [Color.white.opacity(0.3), Color.clear], startPoint: .top, endPoint: .bottom)
-        })
+        .background(
+            ZStack {
+                Color("ButtonColor")
+                LinearGradient(colors: [Color.white.opacity(0.3), Color.clear], startPoint: .top, endPoint: .bottom)
+            })
         .overlay(
             RoundedRectangle(cornerRadius: 25.0)
                 .strokeBorder(Color.white, lineWidth: 2.0)
