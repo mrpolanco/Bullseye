@@ -87,6 +87,7 @@ struct HitMeButton: View {
         } message: {
             let roundedValue = Int(sliderValue)
             Text("The slider value is \(roundedValue).\n" + "You scored \(game.points(sliderValue: roundedValue)) points this round")
+
         }
     }
 }

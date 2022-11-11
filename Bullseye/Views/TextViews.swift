@@ -56,6 +56,34 @@ struct LabelTextView: View {
     }
 }
 
+struct BodyText: View {
+    var text: String
+
+    var body: some View {
+        Text(text)
+            .multilineTextAlignment(.center)
+            .font(.subheadline)
+            .fontWeight(.semibold)
+            .lineSpacing(12.0)
+    }
+}
+
+struct ButtonText: View {
+    var text: String
+
+    var body: some View {
+        Text(text)
+            .font(.headline)
+            .fontWeight(.bold)
+            .foregroundColor(.white)
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(Color("AccentColor"))
+            .cornerRadius(12.0)
+    }
+
+}
+
 struct RoundRectTextView: View {
     var text: String
     
@@ -83,15 +111,20 @@ struct TextPreviewView: View {
             SliderLabelText(text: "1")
             LabelTextView(text: "Score")
             RoundRectTextView(text: "5")
+            BodyText(text: "You scored 200 Points\n🎉🎉🎉")
+            ButtonText(text: "Start New Round")
         }
+        .padding()
+        .border(.red, width: 1.0)
     }
 }
 
 struct TextViews_Previews: PreviewProvider {
     static var previews: some View {
         TextPreviewView()
-            .preferredColorScheme(.dark)
         TextPreviewView()
+            .preferredColorScheme(.dark)
+
     }
 }
 
