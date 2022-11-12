@@ -127,5 +127,3 @@ struct TextViews_Previews: PreviewProvider {
 
     }
 }
-
-
