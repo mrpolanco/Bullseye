@@ -60,36 +60,39 @@ struct HitMeButton: View {
     @Binding var sliderValue: Double
     
     var body: some View {
-        Button(text.uppercased()) {
-            self.alertIsVisible = true
-        }
-        .bold()
-        .font(.title3)
-        .padding(20.0)
-        .background(
-            ZStack {
-                Color("ButtonColor")
-                LinearGradient(colors: [Color.white.opacity(0.3), Color.clear], startPoint: .top, endPoint: .bottom)
-            })
-        .overlay(
-            RoundedRectangle(cornerRadius: 25.0)
-                .strokeBorder(Color.white, lineWidth: 2.0)
-        )
-        .foregroundColor(Color.white)
-        .cornerRadius(25.0)
-        
-        // Alert Pop-up
-        .alert("Hello there!", isPresented: $alertIsVisible) {
-            Button("Awesome!") {
-                let points = game.points(sliderValue: Int(sliderValue))
-                game.startNewRound(points: points)
+        VStack {
+            Button(text.uppercased()) {
+                self.alertIsVisible = true
             }
-        } message: {
-            let roundedValue = Int(sliderValue)
-            Text("The slider value is \(roundedValue).\n" + "You scored \(game.points(sliderValue: roundedValue)) points this round")
+            .bold()
+            .font(.title3)
+            .padding(20.0)
+            .background(
+                ZStack {
+                    Color("ButtonColor")
+                    LinearGradient(colors: [Color.white.opacity(0.3), Color.clear], startPoint: .top, endPoint: .bottom)
+                })
+            .overlay(
+                RoundedRectangle(cornerRadius: 25.0)
+                    .strokeBorder(Color.white, lineWidth: 2.0)
+            )
+            .foregroundColor(Color.white)
+            .cornerRadius(25.0)
+            // Alert Pop-up
+            .alert("Hello there!", isPresented: $alertIsVisible) {
+                ButtonText(text: "Text")
+                Button("Awesome!") {
+                    let points = game.points(sliderValue: Int(sliderValue))
+                    game.startNewRound(points: points)
+                }
+            } message: {
+                let roundedValue = Int(sliderValue)
+                Text("The slider value is \(roundedValue).\n" + "You scored \(game.points(sliderValue: roundedValue)) points this round")
 
+            }
         }
     }
+
 }
 
 struct ContentView_Previews: PreviewProvider {

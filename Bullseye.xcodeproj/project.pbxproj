@@ -16,6 +16,7 @@
 		9B7066A82900F16100CDAF04 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7066A72900F16100CDAF04 /* Game.swift */; };
 		9B7C63492915FDAE00C7E62A /* RoundViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7C63482915FDAE00C7E62A /* RoundViews.swift */; };
 		9B7F05FA291452A100D496AE /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7F05F9291452A100D496AE /* Shapes.swift */; };
+		9BD4F8F7291F25D600B9F3F5 /* PointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD4F8F6291F25D600B9F3F5 /* PointsView.swift */; };
 		9BEF055A291758EC00B3FE12 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEF0559291758EC00B3FE12 /* BackgroundView.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		9B7066A72900F16100CDAF04 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		9B7C63482915FDAE00C7E62A /* RoundViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundViews.swift; sourceTree = "<group>"; };
 		9B7F05F9291452A100D496AE /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
+		9BD4F8F6291F25D600B9F3F5 /* PointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsView.swift; sourceTree = "<group>"; };
 		9BEF0559291758EC00B3FE12 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +125,7 @@
 				9B7F05F9291452A100D496AE /* Shapes.swift */,
 				9B7C63482915FDAE00C7E62A /* RoundViews.swift */,
 				9BEF0559291758EC00B3FE12 /* BackgroundView.swift */,
+				9BD4F8F6291F25D600B9F3F5 /* PointsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				9B7C63492915FDAE00C7E62A /* RoundViews.swift in Sources */,
 				9B19963028C24C3A00172FAF /* ContentView.swift in Sources */,
 				9B4CFE66290788FD00777BA4 /* TextViews.swift in Sources */,
+				9BD4F8F7291F25D600B9F3F5 /* PointsView.swift in Sources */,
 				9BEF055A291758EC00B3FE12 /* BackgroundView.swift in Sources */,
 				9B7F05FA291452A100D496AE /* Shapes.swift in Sources */,
 				9B7066A82900F16100CDAF04 /* Game.swift in Sources */,
