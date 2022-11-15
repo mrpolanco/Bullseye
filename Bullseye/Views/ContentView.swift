@@ -20,13 +20,25 @@ struct ContentView: View {
                 InstructionsViews(game: $game)
                     .padding(.bottom, alertIsVisible ? 0 : 100)
                 if alertIsVisible {
-                    PointsView(alertIsVisible: $alertIsVisible, game: $game, sliderValue: $sliderValue)
+                    PointsView(
+                        alertIsVisible: $alertIsVisible,
+                        game: $game,
+                        sliderValue: $sliderValue
+                    )
+                    .transition(.scale)
                 } else {
-                    HitMeButton(text: "Hit Me!", alertIsVisible: $alertIsVisible, game: $game, sliderValue: $sliderValue)
+                    HitMeButton(
+                        text: "Hit Me!",
+                        alertIsVisible: $alertIsVisible,
+                        game: $game,
+                        sliderValue: $sliderValue
+                    )
+                    .transition(.scale)
                 }
             }
             if !alertIsVisible {
                 SliderView(sliderValue: $sliderValue)
+                    .transition(.scale)
             }
             
         }
@@ -68,26 +80,30 @@ struct HitMeButton: View {
     
     var body: some View {
         VStack {
-            Button(text.uppercased()) {
-                self.alertIsVisible = true
+            Button(action: {
+                withAnimation {
+                    alertIsVisible = true
+                }
+            }) {
+                Text("Hit Me".uppercased())
+                    .bold()
+                    .font(.title3)
             }
-            .bold()
-            .font(.title3)
             .padding(20.0)
             .background(
                 ZStack {
                     Color("ButtonColor")
                     LinearGradient(colors: [Color.white.opacity(0.3), Color.clear], startPoint: .top, endPoint: .bottom)
-                })
+                }
+            )
+            .foregroundColor(Color.white)
+            .cornerRadius(25.0)
             .overlay(
                 RoundedRectangle(cornerRadius: 25.0)
                     .strokeBorder(Color.white, lineWidth: 2.0)
             )
-            .foregroundColor(Color.white)
-            .cornerRadius(25.0)
         }
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {

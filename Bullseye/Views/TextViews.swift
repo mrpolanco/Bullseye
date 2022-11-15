@@ -58,7 +58,7 @@ struct LabelTextView: View {
 
 struct BodyText: View {
     var text: String
-
+    
     var body: some View {
         Text(text)
             .multilineTextAlignment(.center)
@@ -70,7 +70,7 @@ struct BodyText: View {
 
 struct ButtonText: View {
     var text: String
-
+    
     var body: some View {
         Text(text)
             .font(.headline)
@@ -81,7 +81,7 @@ struct ButtonText: View {
             .background(Color("AccentColor"))
             .cornerRadius(12.0)
     }
-
+    
 }
 
 struct RoundRectTextView: View {
@@ -124,6 +124,6 @@ struct TextViews_Previews: PreviewProvider {
         TextPreviewView()
         TextPreviewView()
             .preferredColorScheme(.dark)
-
+        
     }
 }
