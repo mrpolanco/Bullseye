@@ -81,7 +81,6 @@ struct ButtonText: View {
             .background(Color("AccentColor"))
             .cornerRadius(12.0)
     }
-    
 }
 
 struct ScoreText: View {
@@ -123,7 +122,17 @@ struct RoundRectTextView: View {
                     .strokeBorder(Color("ButtonStrokeColor"), lineWidth: Constants.General.strokeWidth)
             )
     }
-    
+}
+
+struct BigBoldText: View {
+    let text: String
+
+    var body: some View {
+        Text(text.uppercased())
+            .font(.title)
+            .kerning(2.0)
+            .fontWeight(.black)
+    }
 }
 
 struct TextPreviewView: View {
@@ -139,6 +148,7 @@ struct TextPreviewView: View {
             ButtonText(text: "Start New Round")
             ScoreText(score: 459)
             DateText(date: Date())
+            BigBoldText(text: "Leaderboard")
         }
         .padding()
         .border(.red, width: 1.0)
@@ -150,6 +160,5 @@ struct TextViews_Previews: PreviewProvider {
         TextPreviewView()
         TextPreviewView()
             .preferredColorScheme(.dark)
-        
     }
 }
